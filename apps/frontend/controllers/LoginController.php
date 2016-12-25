@@ -18,10 +18,11 @@ class LoginController extends ControllerBase
     }
 
     public function loginAction(){
-        $username = $_POST['username'];
+
+        $email = $_POST['email'];
         $password = $_POST['pass'];
         $userSearch = UserSearch::createUserSearch();
-        $userSearch->username = $username;
+        $userSearch->email = $email;
         $userSearch->password = $password;
         $login=$userSearch->findFirst();
         if($login){

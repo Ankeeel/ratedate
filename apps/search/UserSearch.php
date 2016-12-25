@@ -14,8 +14,16 @@ use Objects\User;
 
 class UserSearch extends SearchBase
 {
+    public $id;
+    public $email;
     public $username;
     public $password;
+    public $city;
+    public $age;
+    public $gender;
+    public $tol;
+    public $ig;
+    public $looking;
 
     public static function createUserSearch(){
         $userSearch = new UserSearch();
@@ -31,6 +39,27 @@ class UserSearch extends SearchBase
         }
         if($this->password){
             $params['password']=$this->password;
+        }
+        if($this->email){
+            $params['email']=$this->email;
+        }
+        if($this->city){
+            $params['city']=$this->city;
+        }
+        if($this->age){
+            $params['age']=$this->age;
+        }
+        if($this->gender){
+            $params['gender']=$this->gender;
+        }
+        if($this->tol){
+            $params['tol']=$this->tol;
+        }
+        if($this->ig){
+            $params['ig']=$this->ig;
+        }
+        if($this->looking){
+            $params['looking']=$this->looking;
         }
         return $params;
     }

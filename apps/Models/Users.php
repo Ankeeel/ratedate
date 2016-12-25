@@ -7,11 +7,16 @@ use Objects\Seq;
 class Users extends \Phalcon\Mvc\Collection
 {
     public $id;
+    public $email;
     public $username;
     public $password;
     public $city;
     public $age;
     public $gender;
+    public $tol;
+    public $ig;
+    public $looking;
+
 
 
     public function create($id = false){
