@@ -23,6 +23,15 @@ class User
     public $tol;
     public $ig;
     public $looking;
+    public $school;
+    public $job;
+    public $weight;
+    public $height;
+    public $eColor;
+    public $hColor;
+    public $smoking;
+    public $looklike;
+    public $hChild;
 
     public function generate($obj){
         $user = new User();
@@ -35,7 +44,18 @@ class User
         $user->gender = $obj->gender;
         $user->tol = $obj->tol;
         $user->ig = $obj->ig;
+        $user->school = $obj->school;
         $user->looking = $obj->looking;
+        $user->job = $obj->job;
+        $user->weight = $obj->weight;
+        $user->height = $obj->height;
+        $user->eColor = $obj->eColor;
+        $user->hColor = $obj->hColor;
+        $user->smoking = $obj->smoking;
+        $user->looklike = $obj->looklike;
+        $user->hChild = $obj->hChild;
+
+
         return $user;
     }
 
@@ -50,7 +70,16 @@ class User
         $user->gender = $this->gender;
         $user->tol = $this->tol;
         $user->ig = $this->ig;
+        $user->school = $this->school;
         $user->looking = $this->looking;
+        $user->job = $this->job;
+        $user->weight = $this->weight;
+        $user->height = $this->height;
+        $user->eColor = $this->eColor;
+        $user->hColor = $this->hColor;
+        $user->smoking = $this->smoking;
+        $user->looklike = $this->looklike;
+        $user->hChild = $this->hChild;
 
         if($user->save()){
             return true;

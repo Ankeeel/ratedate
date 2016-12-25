@@ -36,6 +36,15 @@ class RegisterController extends ControllerBase
         $user->age = $_POST['age'];
         $user->gender = $_POST['gender'];
         $user->looking = $_POST['looking'];
+        $user->school = 'miss';
+        $user->job = 'miss';
+        $user->weight = 'miss';
+        $user->height = 'miss';
+        $user->eColor = 'miss';
+        $user->hColor = 'miss';
+        $user->smoking = 'miss';
+        $user->looklike = 'miss';
+        $user->hChild = 'miss';
         $user->save();
         $this->response->redirect("login/index");
             }

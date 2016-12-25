@@ -16,6 +16,16 @@ class Users extends \Phalcon\Mvc\Collection
     public $tol;
     public $ig;
     public $looking;
+    public $school;
+    public $job;
+    public $weight;
+    public $height;
+    public $eColor;
+    public $hColor;
+    public $smoking;
+    public $looklike;
+    public $hChild;
+
 
 
 
