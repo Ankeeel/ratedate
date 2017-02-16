@@ -1,0 +1,21 @@
+{
+  "name": "randi",
+  "version": "1.0.0",
+  "description": "Környezet : \r nodejs - https://nodejs.org/en/\r mongodb - https://www.mongodb.com/\r     robomongo (mongomanager) - https://robomongo.org/\r phalcon - https://phalconphp.com/hu/",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ankeeel/ratedate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ankeeel/ratedate/issues"
+  },
+  "homepage": "https://github.com/Ankeeel/ratedate#readme"
+}

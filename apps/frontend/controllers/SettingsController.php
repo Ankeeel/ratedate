@@ -14,7 +14,10 @@ use Search\UserSearch;
 class SettingsController extends ControllerBase
 {
     public function indexAction(){
-
+        $sess = $this->session->get('id');
+        $userSearch = UserSearch::createUserSearch();
+        $result = $userSearch->create($sess);
+        $this->view->user = $result;
     }
 
     public function saveAction(){

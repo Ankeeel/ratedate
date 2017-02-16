@@ -13,7 +13,6 @@ class ControllerBase extends Controller
     }
 
     public function checkLogin(){
-
         if($this->session->has('id')){
             $this->view->setMainView('index');
         }else{
