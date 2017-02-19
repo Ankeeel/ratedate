@@ -95,8 +95,8 @@ module backApp {
 
             .when("/option/index", {
                 templateUrl: '/apps/frontend/views/directives/routes/option/index.html',
-                controller : 'OptionController',
-                ControllerAs: 'ctrl',
+                controller : 'OptionController as ctrl',
+                //ControllerAs: 'ctrl',
                 resolve: {
                     option: ['$route', "$http", function (route, http){
                         return http.get('/option/get').then(function(response){

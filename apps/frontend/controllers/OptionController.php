@@ -20,6 +20,6 @@ class OptionController extends ControllerBase
         $sess = $this->session->get('id');
         $userSearch = UserSearch::createUserSearch();
         $result = $userSearch->create($sess);
-        return $this->api(200,$result);
+        return $this->api(200,json_encode($result));
     }
 }
