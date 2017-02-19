@@ -5,10 +5,10 @@ module backApp {
     }
 
     class OptionController implements IOptionController{
-        public _formData : any = {};
+        //public _formData : any = {};
 
         constructor(public scope,private http, private window, public option){
-            this._formData = option;
+            //this._formData = option;
             console.log(this._formData);
         }
     }
