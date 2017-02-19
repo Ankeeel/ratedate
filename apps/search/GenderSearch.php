@@ -34,6 +34,5 @@ class GenderSearch extends SearchBase
             $params['name']=$this->name;
         }
         return $params;
-
     }
 }

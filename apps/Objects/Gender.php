@@ -23,6 +23,8 @@ class Gender
         $gender->id = $obj->id;
         $gender->type = $obj->type;
         $gender->name = $obj->name;
+
+        return $gender;
     }
 
     public function save()
@@ -31,5 +33,12 @@ class Gender
         $gender = $model->create($this->id);
         $gender->type = $this->type;
         $gender->name = $this->name;
+
+        if ($gender->save()) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
 }

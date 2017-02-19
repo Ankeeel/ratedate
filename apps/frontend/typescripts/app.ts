@@ -27,13 +27,13 @@ module backApp {
 
         $translateProvider.useSanitizeValueStrategy('escapeParameters');
 
-        $translateProvider.useStaticFilesLoader({
+        /*$translateProvider.useStaticFilesLoader({
             prefix: '/modules/Admin/lang/',
             suffix: '.json'
-        });
+        });*/
 
         // todo config itt kell beállítani a default nyelvet
-        $translateProvider.preferredLanguage('hu');
+        //$translateProvider.preferredLanguage('hu');
 
         /**
          * locale storage beállítása
@@ -67,8 +67,53 @@ module backApp {
         /**
          * routing
          */
-        $routeProvider.when("/admin", {
-            templateUrl: '/modules/Admin/views/directives/routes/index/index.html'
+        $routeProvider.when("/", {
+            templateUrl: '/apps/frontend/views/directives/routes/dashboard/index.html',
+            controller : 'DashboardController',
+            ControllerAs: 'ctrl',
+           // resolve: {
+            //    profile: ['$route', "$http", function (route, http){
+            //        return http.get('profile/get').then(function(response){
+            //            return angular.fromJson(response.data);
+            //        });
+            //    }]
+            //    dashboard: ['$route','$http',function(route, http){
+            //        return http.get('dashboard/get').then(function(response){
+            //            return angular.fromJson(responde.data);
+            //        });
+            //    }]
+            //}
+        })
+
+        .when("/dashboard/index", {
+                templateUrl: '/apps/frontend/views/directives/routes/dashboard/index.html',
+                controller : 'DashboardController',
+                ControllerAs: 'ctrl',
+               // resolve: {
+                    //    profile: ['$route', "$http", function (route, http){
+                    //        return http.get('profile/get').then(function(response){
+                    //            return angular.fromJson(response.data);
+                    //        });
+                    //    }]
+                    //    dashboard: ['$route','$http',function(route, http){
+                    //        return http.get('dashboard/get').then(function(response){
+                    //            return angular.fromJson(responde.data);
+                    //        });
+                    //    }]
+               // }
+            })
+
+        .when("/profile/index", {
+            templateUrl: '/apps/frontend/views/directives/routes/profile/index.html',
+            controller : 'ProfileController as ctrl',
+            //ControllerAs: 'ctrl',
+            resolve: {
+                profile: ['$route', "$http", function (route, http){
+                    return http.get('/profile/get').then(function(response){
+                        return angular.fromJson(response.data);
+                    });
+                }]
+            }
         })
     });
 }

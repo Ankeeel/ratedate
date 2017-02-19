@@ -24,6 +24,14 @@ class SettingsController extends ControllerBase
         $id = $this->session->get('id');
         $userSearch = UserSearch::createUserSearch();
         $perSetting = $userSearch->create($id);
+        $perSetting->email = $_POST['email'];
+        $perSetting->username = $_POST['username'];
+        $perSetting->age = $_POST['age'];
+        $perSetting->city = $_POST['city'];
+        $perSetting->age = $_POST['age'];
+        $perSetting->city = $_POST['city'];
+        $perSetting->age = $_POST['age'];
+        $perSetting->city = $_POST['city'];
         $perSetting->age = $_POST['age'];
         $perSetting->city = $_POST['city'];
         $perSetting->save();

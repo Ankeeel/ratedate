@@ -43,10 +43,10 @@ class UserSearch extends SearchBase
 
     public function _readSearch(){
         $params=parent::_readSearch();
-        if($this->username){
+        if(isset($this->username)){
             $params['username']=$this->username;
         }
-        if($this->password){
+        if(isset($this->password)){
             $params['password']=$this->password;
         }
         if($this->email){

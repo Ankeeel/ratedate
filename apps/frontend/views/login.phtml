@@ -1,4 +1,4 @@
-<html>
+<html data-ng-app="backApp">
 <head>
     <link rel="stylesheet" type="text/css" href="/apps/frontend/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="/node_modules/ng-datepicker/src/css/ngDatepicker.css">
 </head>
 <body>
-<form action="/login/login" method="post">
-    Név:<input type="text" name="email">
-    Jelszó:<input type="password" name="pass">
-    <input type="submit">
-</form>
+<div data-ng-controller="LoginController as ctrl">
+        <form>
+            Név:<input type="text" data-ng-model="ctrl._formData.email">
+            Jelszó:<input type="password" data-ng-model="ctrl._formData.password">
+            <button data-ng-click="ctrl.enter()">Belépés</button>
+        </form>
+</div>
+
 <a href="/register/index">Regisztráció</a>
 <div class="scripts">
     <script src="/node_modules/angular/angular.js"></script>
@@ -24,6 +27,10 @@
     <script src="/node_modules/angular-modal-service/dst/angular-modal-service.min.js"></script>
     <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
     <script src="/node_modules/angular-route/angular-route.js"></script>
+    <script src="/node_modules/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="/node_modules/angular-translate/dist/angular-translate.js"></script>
+    <script src="/node_modules/angular-img-cropper/dist/angular-img-cropper.min.js"></script>
+    <script src="/node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="/frontend-scripts.js"></script>
 </div>
 </body>

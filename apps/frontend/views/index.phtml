@@ -1,13 +1,12 @@
-<html>
+<html data-ng-app="backApp">
 <head>
     <link rel="stylesheet" type="text/css" href="/apps/frontend/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
     <link rel="stylesheet" href="/node_modules/angular-ui-switch/angular-ui-switch.min.css">
     <link rel="stylesheet" href="/node_modules/angular-loading-bar/src/loading-bar.css" type='text/css' media='all' >
-
     <link rel="stylesheet" href="/node_modules/ng-datepicker/src/css/ngDatepicker.css">
 </head>
-<body>
+<body data-ng-controller="CommonController as ctrl">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -18,45 +17,51 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/dashboard/index">Gyakorlás</a>
+            <a class="navbar-brand" data-ng-href="/dashboard/index">Gyakorlás</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/admin/admin">ADMIN <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="/chat/chatindex">CHAT <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a data-ng-href="/admin/admin">ADMIN <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a data-ng-href="/chat/chatindex">CHAT <span class="sr-only">(current)</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/profile/index">Profile</a></li>
+                <li><a data-ng-href="/profile/index">Profile</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beállítások<span class="caret"></span></a>
+                    <a data-ng-href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beállítások<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/settings/index">Személyes</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a data-ng-href="/settings/index">Személyes</a></li>
+                        <li><a data-ng-href="#">Another action</a></li>
+                        <li><a data-ng-href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a data-ng-href="#">Separated link</a></li>
                     </ul>
                 </li>
-                <a class="navbar-brand" href="/logout/logout">Logout</a>
+                <a class="navbar-brand" data-ng-click="ctrl.logout()">Logout</a>
             </ul>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 <div class="container"><br/>
-    <?php echo $this->getContent()?>
+    <div data-ng-view></div>
 </div>
-<script src="/node_modules/angular/angular.js"></script>
-<script src="/apps/frontend/public/js/jquery-3.1.1.min.js"></script>
-<script src="/apps/frontend/public/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/node_modules/ng-datepicker/src/js/ngDatepicker.min.js"></script>
-<script src="/node_modules/angular-smart-table/dist/smart-table.min.js"></script>
-<script src="/node_modules/angular-ui-switch/angular-ui-switch.min.js"></script>
-<script src="/node_modules/angular-modal-service/dst/angular-modal-service.min.js"></script>
-<script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
-<script src="/node_modules/angular-route/angular-route.js"></script>
-<script src="/frontend-scripts.js"></script>
+<div class="scripts">
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/apps/frontend/public/js/jquery-3.1.1.min.js"></script>
+    <script src="/apps/frontend/public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/node_modules/ng-datepicker/src/js/ngDatepicker.min.js"></script>
+    <script src="/node_modules/angular-smart-table/dist/smart-table.min.js"></script>
+    <script src="/node_modules/angular-ui-switch/angular-ui-switch.min.js"></script>
+    <script src="/node_modules/angular-modal-service/dst/angular-modal-service.min.js"></script>
+    <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script src="/node_modules/angular-route/angular-route.js"></script>
+    <script src="/node_modules/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="/node_modules/angular-translate/dist/angular-translate.js"></script>
+    <script src="/node_modules/angular-img-cropper/dist/angular-img-cropper.min.js"></script>
+    <script src="/node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="/frontend-scripts.js"></script>
+</div>
 </body>
 </html>

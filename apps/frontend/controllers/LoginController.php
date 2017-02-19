@@ -18,23 +18,30 @@ class LoginController extends ControllerBase
     }
 
     public function loginAction(){
-
-        $email = $_POST['email'];
-        $password = $_POST['pass'];
+        $form = $this->request->getJsonRawBody();
+        $email = !empty($form->email)?$form->email:"";
+        $password = !empty($form->password)?$form->password:"";
         $userSearch = UserSearch::createUserSearch();
         $userSearch->email = $email;
         $userSearch->password = $password;
         $login=$userSearch->findFirst();
+
         if($login){
             $this->session->set("id", $login->id);
 
             $this->response->redirect("dashboard/index");
+            return $this->api(200,json_encode($login));
         }
         else{
-            echo'nem oké';
+            return $this->api(400,json_encode("bazd+"));
         }
 
 
+    }
+
+    public function logoutAction(){
+        $this->session->remove("id");
+        return $this->api(200,json_encode("success"));
     }
 
 }

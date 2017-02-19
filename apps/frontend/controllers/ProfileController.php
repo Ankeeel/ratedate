@@ -15,9 +15,12 @@ use Search\UserSearch;
 class ProfileController extends ControllerBase
 {
     public function indexAction(){
+    }
+
+    public function getAction(){
         $sess = $this->session->get('id');
         $userSearch = UserSearch::createUserSearch();
         $result = $userSearch->create($sess);
-        $this->view->user = $result;
+        return $this->api(200,$result);
     }
 }
