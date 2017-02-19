@@ -71,36 +71,13 @@ module backApp {
             templateUrl: '/apps/frontend/views/directives/routes/dashboard/index.html',
             controller : 'DashboardController',
             ControllerAs: 'ctrl',
-           // resolve: {
-            //    profile: ['$route', "$http", function (route, http){
-            //        return http.get('profile/get').then(function(response){
-            //            return angular.fromJson(response.data);
-            //        });
-            //    }]
-            //    dashboard: ['$route','$http',function(route, http){
-            //        return http.get('dashboard/get').then(function(response){
-            //            return angular.fromJson(responde.data);
-            //        });
-            //    }]
-            //}
         })
 
         .when("/dashboard/index", {
                 templateUrl: '/apps/frontend/views/directives/routes/dashboard/index.html',
                 controller : 'DashboardController',
                 ControllerAs: 'ctrl',
-               // resolve: {
-                    //    profile: ['$route', "$http", function (route, http){
-                    //        return http.get('profile/get').then(function(response){
-                    //            return angular.fromJson(response.data);
-                    //        });
-                    //    }]
-                    //    dashboard: ['$route','$http',function(route, http){
-                    //        return http.get('dashboard/get').then(function(response){
-                    //            return angular.fromJson(responde.data);
-                    //        });
-                    //    }]
-               // }
+
             })
 
         .when("/profile/index", {
@@ -115,5 +92,19 @@ module backApp {
                 }]
             }
         })
+
+            .when("/settings/index", {
+                templateUrl: '/apps/frontend/views/directives/routes/option/index.html',
+                controller : 'OptionController',
+                ControllerAs: 'ctrl',
+                resolve: {
+                    profile: ['$route', "$http", function (route, http){
+                        return http.get('/settings/get').then(function(response){
+                            return angular.fromJson(response.data);
+                        });
+                    }]
+                }
+            })
+
     });
 }

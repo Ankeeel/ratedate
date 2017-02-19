@@ -13,7 +13,6 @@ module backApp {
         }
 
         public logout(){
-            console.log('asdsadads');
             var self = this;
             this.http.get('/login/logout').then(function (response) {
                 self.window.open('/','_self');

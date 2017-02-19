@@ -6,37 +6,16 @@ $admin = new Group(array(
     'module' => 'frontend',
 ));
 
-//$admin->addGet('/', array(
-//        'controller' => 'index',
-//        'action' => 'index'
-//    )
-//);
-//
-//$admin->addGet('/:controller/:action/:params', array(
-//        'controller' => 1,
-//        'action' => 2,
-//        'params' => 3
-//    )
-//);
-//
-//$admin->addGet('/:controller/:action', array(
-//        'controller' => 1,
-//        'action' => 2
-//    )
-//);
-//
-//
-//$admin->addPost('/bekuld',array(
-//        'controller'=>'register',
-//        'action' => 'bekuld'
-//    )
-//);
-//
-//$admin->addPost('/:controller/save', array(
-//        'controller' => 1,
-//        'action' => 'save'
-//    )
-//);
+$admin->addGet('/:controller/:action?', array(
+        'controller'    => 'index',
+        'action'        => 'index',
+    )
+);
+$admin->addGet('/:controller', array(
+        'controller'    => 'index',
+        'action'        => 'index',
+    )
+);
 
 $admin->addGet('/', array(
         'controller' => 'index',
@@ -57,4 +36,7 @@ $admin->addPost('/:controller/:action/:params', array(
         'params' => 3
     )
 );
+
+
+
 $router->mount($admin);

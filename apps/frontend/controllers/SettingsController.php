@@ -14,10 +14,6 @@ use Search\UserSearch;
 class SettingsController extends ControllerBase
 {
     public function indexAction(){
-        $sess = $this->session->get('id');
-        $userSearch = UserSearch::createUserSearch();
-        $result = $userSearch->create($sess);
-        $this->view->user = $result;
     }
 
     public function saveAction(){
@@ -36,5 +32,12 @@ class SettingsController extends ControllerBase
         $perSetting->city = $_POST['city'];
         $perSetting->save();
         $this->response->redirect("profile/index");
+    }
+
+    public function getAction(){
+        $sess = $this->session->get('id');
+        $userSearch = UserSearch::createUserSearch();
+        $result = $userSearch->create($sess);
+        return $this->api(200,$result);
     }
 }
