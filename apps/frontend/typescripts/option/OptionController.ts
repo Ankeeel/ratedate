@@ -5,12 +5,14 @@ module backApp {
     }
 
     class OptionController implements IOptionController{
+        public _formData : any = {};
 
-
-        constructor(private scope,private http, private window){
+        constructor(public scope,private http, private window, public option){
+            this._formData = option;
+            console.log(this._formData);
         }
     }
 
     var backApp = angular.module('backApp');
-    backApp.controller('OptionController', ['$scope', '$http','$window', OptionController]);
+    backApp.controller('OptionController', ['$scope', '$http','$window','option', OptionController]);
 }

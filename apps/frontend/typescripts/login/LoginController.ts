@@ -5,7 +5,6 @@ module backApp {
     }
 
     class LoginController implements ILoginController{
-        public teszt : any = "string";
         public _formData : any = {};
 
 

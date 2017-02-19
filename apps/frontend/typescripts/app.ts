@@ -93,13 +93,13 @@ module backApp {
             }
         })
 
-            .when("/settings/index", {
+            .when("/option/index", {
                 templateUrl: '/apps/frontend/views/directives/routes/option/index.html',
                 controller : 'OptionController',
                 ControllerAs: 'ctrl',
                 resolve: {
-                    profile: ['$route', "$http", function (route, http){
-                        return http.get('/settings/get').then(function(response){
+                    option: ['$route', "$http", function (route, http){
+                        return http.get('/option/get').then(function(response){
                             return angular.fromJson(response.data);
                         });
                     }]
