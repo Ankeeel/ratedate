@@ -11,7 +11,7 @@ namespace Objects;
 
 use Models\Users;
 
-class User
+class User extends Base
 {
     public $id;
     public $email;
@@ -32,6 +32,7 @@ class User
     public $smoking;
     public $looklike;
     public $hChild;
+    public $ratings;
 
     public function generate($obj){
         $user = new User();
@@ -54,6 +55,7 @@ class User
         $user->smoking = $obj->smoking;
         $user->looklike = $obj->looklike;
         $user->hChild = $obj->hChild;
+        $user->ratings = $obj->ratings;
 
 
         return $user;
@@ -80,11 +82,19 @@ class User
         $user->smoking = $this->smoking;
         $user->looklike = $this->looklike;
         $user->hChild = $this->hChild;
+        $user->ratings = $this->ratings;
 
         if($user->save()){
             return true;
         }else{
             return false;
+        }
+    }
+
+    public function like($id){
+        if(!in_array($id,$this->ratings)){
+            $this->ratings[] = $id;
+            $this->save();
         }
     }
 }

@@ -5,22 +5,25 @@ module backApp {
     }
 
     class DashboardController implements IDashboardController{
-        public teszt : any = "string";
         public _formData : any = {};
+        public users : any = [];
 
 
         constructor(private scope,private http, private window){
+           this.init();
         }
 
-        public enter(){
+        private init(){
             var self = this;
             var data = angular.toJson(this._formData);
-            this.http.post('/dashboard/dashboard',data).then(function (response) {
-                var id = angular.fromJson(response.data);
-                self.window.open('/','_self');
+            this.http.post('/dashboard/search',data).then(function (response) {
+                 self.users = angular.fromJson(response.data);
             },function (response) {
-
             });
+        }
+
+        public search(){
+            this.init();
         }
 
     }

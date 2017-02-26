@@ -21,6 +21,9 @@ module backApp {
 
             });
         }
+        public toRegister(){
+            this.window.open('/register/index','_self');
+        }
 
     }
 

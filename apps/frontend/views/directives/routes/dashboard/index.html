@@ -1,1 +1,9 @@
-valami szöveg dashboard
+<div>
+    <form>
+        név: <input type="text" data-ng-model="ctrl._formData.username">
+        <input type="button" value="search" data-ng-click="ctrl.search()">
+    </form>
+</div>
+<div data-ng-repeat="user in ctrl.users">
+    <a data-ng-href="/profile/{{user.id}}">{{user.username}}</a>
+</div>

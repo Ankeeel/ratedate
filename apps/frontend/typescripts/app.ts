@@ -75,9 +75,7 @@ module backApp {
 
         .when("/dashboard/index", {
                 templateUrl: '/apps/frontend/views/directives/routes/dashboard/index.html',
-                controller : 'DashboardController',
-                ControllerAs: 'ctrl',
-
+                controller : 'DashboardController as ctrl',
             })
 
         .when("/profile/index", {
@@ -93,18 +91,33 @@ module backApp {
             }
         })
 
-            .when("/option/index", {
-                templateUrl: '/apps/frontend/views/directives/routes/option/index.html',
-                controller : 'OptionController as ctrl',
-                //ControllerAs: 'ctrl',
-                resolve: {
-                    option: ['$route', "$http", function (route, http){
-                        return http.get('/option/get').then(function(response){
-                            return angular.fromJson(response.data);
-                        });
-                    }]
-                }
-            })
 
-    });
+
+        .when("/profile/:id", {
+            templateUrl: '/apps/frontend/views/directives/routes/profile/index.html',
+            controller : 'ProfileController as ctrl',
+            //ControllerAs: 'ctrl',
+            resolve: {
+                profile: ['$route', "$http", function (route, http){
+                    return http.get('/profile/get/'+route.current.params.id).then(function successCallback(response) {
+                        return response.data;
+                    });
+                }]
+            }
+        })
+
+        .when("/option/index", {
+            templateUrl: '/apps/frontend/views/directives/routes/option/index.html',
+            controller : 'OptionController as ctrl',
+            //ControllerAs: 'ctrl',
+            resolve: {
+                option: ['$route', "$http", function (route, http){
+                    return http.get('/option/get').then(function(response){
+                        return angular.fromJson(response.data);
+                    });
+                }]
+            }
+        })
+
+});
 }

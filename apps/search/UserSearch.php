@@ -21,18 +21,6 @@ class UserSearch extends SearchBase
     public $city;
     public $age;
     public $gender;
-    public $tol;
-    public $ig;
-    public $looking;
-    public $school;
-    public $job;
-    public $weight;
-    public $height;
-    public $eColor;
-    public $hColor;
-    public $smoking;
-    public $looklike;
-    public $hChild;
 
     public static function createUserSearch(){
         $userSearch = new UserSearch();
@@ -60,42 +48,6 @@ class UserSearch extends SearchBase
         }
         if($this->gender){
             $params['gender']=$this->gender;
-        }
-        if($this->tol){
-            $params['tol']=$this->tol;
-        }
-        if($this->ig){
-            $params['ig']=$this->ig;
-        }
-        if($this->looking){
-            $params['looking']=$this->looking;
-        }
-        if($this->school){
-            $params['school']=$this->school;
-        }
-        if($this->job){
-            $params['job']=$this->job;
-        }
-        if($this->weight){
-            $params['weight']=$this->weight;
-        }
-        if($this->height){
-            $params['height']=$this->height;
-        }
-        if($this->eColor){
-            $params['eColor']=$this->eColor;
-        }
-        if($this->hColor){
-            $params['hColor']=$this->hColor;
-        }
-        if($this->smoking){
-            $params['smoking']=$this->smoking;
-        }
-        if($this->looklike){
-            $params['looklike']=$this->looklike;
-        }
-        if($this->hChild){
-            $params['hChild']=$this->hChild;
         }
 
         return $params;

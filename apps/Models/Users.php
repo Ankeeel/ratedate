@@ -25,6 +25,7 @@ class Users extends \Phalcon\Mvc\Collection
     public $smoking;
     public $looklike;
     public $hChild;
+    public $ratings;
 
 
 

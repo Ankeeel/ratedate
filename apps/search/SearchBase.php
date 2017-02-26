@@ -13,12 +13,16 @@ class SearchBase
     public $model;
     public $id;
     public $object;
+    public $excludedIds;
 
 
     protected function _readSearch(){
         $params=[];
         if($this->id){
             $params['id']=$this->id;
+        }
+        if(!empty($this->excludedIds)){
+            $params['id'] = array('$nin'=>$this->excludedIds);
         }
         return $params;
     }
